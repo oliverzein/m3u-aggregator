@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U Aggregator - Rule Sets Filtering</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>M3U Aggregator</h1>
+            <p>Filter and manage your IPTV playlists with Rule Sets</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section id="uploadSection" class="section">
+            <h2>Upload M3U File</h2>
+            <div id="uploadArea" class="upload-area">
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <p>Drag and drop your M3U file here or click to browse</p>
+                    <button id="uploadBtn" class="btn btn-primary">Select File</button>
+                    <input type="file" id="fileInput" accept=".m3u,.m3u8" style="display: none;">
+                </div>
+            </div>
+            <div id="uploadProgress" class="progress" style="display: none;">
+                <div class="progress-fill"></div>
+                <div class="progress-text">Processing...</div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="statsSection" class="section" style="display: none;">
+            <h2>Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="originalCount">0</div>
+                    <div class="stat-label">Original Channels</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="filteredCount">0</div>
+                    <div class="stat-label">Filtered Channels</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="rulesCount">0</div>
+                    <div class="stat-label">Active Rules</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section id="filtersSection" class="section" style="display: none;">
+            <h2>Rule Sets</h2>
+            <div id="ruleSetsContainer" class="rule-sets-container">
+                <!-- Rule sets will be dynamically added here -->
+            </div>
+            <button id="addRuleSetBtn" class="btn btn-secondary">Add Rule Set</button>
+            <button id="applyRuleSetsBtn" class="btn btn-primary">Apply Rule Sets</button>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="section" style="display: none;">
+            <h2>Filtered Results</h2>
+            <div class="results-header">
+                <input type="text" id="searchResults" placeholder="Search channels..." class="search-input">
+                <div class="results-actions">
+                    <button id="previewBtn" class="btn btn-secondary">Preview M3U</button>
+                    <button id="downloadBtn" class="btn btn-primary">Download M3U</button>
+                </div>
+            </div>
+            <div id="channelsList" class="channels-list">
+                <!-- Channels will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="previewSection" class="section" style="display: none;">
+            <h2>M3U Preview</h2>
+            <div class="preview-actions">
+                <button id="copyPreviewBtn" class="btn btn-secondary">Copy to Clipboard</button>
+                <button id="closePreviewBtn" class="btn btn-secondary">Close Preview</button>
+            </div>
+            <pre id="previewContent" class="preview-content"></pre>
+        </section>
+    </div>
+
+    <!-- Message Container -->
+    <div id="messageContainer" class="message-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
